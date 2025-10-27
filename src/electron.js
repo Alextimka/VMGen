@@ -1,6 +1,7 @@
 const { app, BrowserWindow, dialog, screen, ipcMain } = require('electron');
 const fs = require("node:fs");
 const path = require('node:path');
+const { toJson } = require('xml2json')
 
 // Создание/Удаление ярлыков в Windows при установке/удалении.
 if (require('electron-squirrel-startup')) { 
@@ -23,6 +24,13 @@ const projectSelect = () => {
   // Загрузить projects.html
   projects.loadFile(path.join(__dirname, 'pages/projects/projects.html'));
 };
+ipcMain.on('toJson', (event, args) => {
+  try {
+    event.returnValue = {value: toJson(args['xml']), success: true}
+  } catch (error) {
+    event.returnValue = {error: error, success: false}
+  }
+});
 ipcMain.on('openFile', (event, args) => {
   dialog.showOpenDialog({ 
     properties: [
@@ -56,19 +64,6 @@ ipcMain.on('openFile', (event, args) => {
       event.returnValue = {error: err, success: false}
     }
   );
-  (desc, fileTypes, multiple, type) => {
-      response = ipcRenderer.sendSync("selectFile", {
-        desc: desc, 
-        fileTypes: fileTypes,
-        multiple: multiple
-      });
-      if (response['success']) {
-        
-  
-      } else {
-        console.error(response['error']);
-      }
-    }
   
 });
 
@@ -86,7 +81,6 @@ ipcMain.on('newPrj', (event, args) => {
   // Загрузить projects.html
   mainWindow.loadFile(path.join(__dirname, 'pages/main/main.html'));
   mainWindow.once("focus", ()=>{mainWindow.maximize();});
-  // mainWindow.title = args["title"]
   
   event.returnValue = {success: true};
 })

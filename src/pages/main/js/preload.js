@@ -1,8 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-const files = {jsonField: [], xmlStructure: [], jsonExamples: []};
-
-
+const files = {jsonField: [], xmlStructure: []};
 
 contextBridge.exposeInMainWorld('projects', {
   openFile: (desc, fileTypes, multiple, type,folder) => {
@@ -14,17 +12,19 @@ contextBridge.exposeInMainWorld('projects', {
     });
     if (response['success']) {
       if (response["value"]['canceled']) return 0;
-      console.log(response);
       files[type] = response["value"];
-      console.log(files);
-      
-
     } else {
       console.error(response['error']);
-      
     }
   },
-  title: []
+  title: [],
+  generate: () => {
+    let jsonFile = JSON.parse(files["jsonField"]);
+    let xmlFile = JSON.parse(ipcRenderer.sendSync("toJson", {xml: files["xmlStructure"].toString()})["value"]);
+    console.log(jsonFile);
+    console.log(xmlFile);
+
+  }
 });
 
 // ipcRenderer.on("projectTitle", (event, args)=>{
