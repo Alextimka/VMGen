@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/general.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Новый Проект</title>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"></div>
+    <input type="text" id="projectName" class="button" value="Новый Проект">
+  </div>
+  <div class="leftField">
+    <button type="button" onclick="projects.openFile('Поля заявления (.json)', ['json'], false, 'jsonField')">Загрузить схему услуги</button>
+    <button type="button" onclick="projects.openFile('Целевая структура (.xsd)', ['xml', 'xsd'], false, 'xmlStructure')">Загрузить схему вида сведений</button>
+    <button type="button" onclick="projects.openFile('Пример(ы) заявления (.json)', ['json'], true, 'jsonExamples')">Загрузить пример(ы) заявлений</button>
+    <button type="button" class="genBtn" onclick="">Сгенерировать</button>
+  </div>
+  
+  <script src="./js/renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+#projectName {
+  border: 0;
+  text-align: center;
+  margin: 0 20px 0 0;
+  transition: background-color .7s;
+  padding: 8px 16px;
+  background: #edf2fe;
+  border-radius: 12px;
+  background-size: 0% 100%;
+  color: #0d4cd3;
+  border: none;
+  font-family: 'Comfortaa';
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 24px;
+  border: 2px solid transparent;
+}
+#projectName:focus {
+  outline: none;
+  border: 2px solid #99b1e6;
+}
+.genBtn {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 12px 38px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 36px;
+  color: #fff;
+  background-color: #0d4cd3;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.genBtn:hover {
+  color: #fff;
+  background-color: #1d5deb;
+}
+button {
+  display: flex;
+  margin: 70px auto 0 auto;
+  padding: 8px 22px;
+  width: 430px;
+  font-size: 22px;
+  line-height: 32px;
+  background: #ffffff;
+}
+.leftField {
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  height: 100%;
+  box-shadow: 5px 0 5px #49588314;
+  background: #e4ecfd;
+  width: 500px;
+  align-items: center;
+}

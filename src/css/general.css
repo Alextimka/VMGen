@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../fonts/Comfortaa.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --background: #fafcff;
+  --text-color: #deddd9;
+  --button-color: #787b5e;
+}
+.header {
+  align-items: center;
+  margin: 0 auto;
+  height: 64px;
+  background-color: #fff;
+  box-shadow: 0 2px 2px #9daccf14;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+.logo {
+  position: absolute;
+  left:0;
+  width:160px;
+  height: inherit;
+  background-color: #ff0000;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa';
+  color: var(--text-color);
+  background: linear-gradient(86deg, rgb(253, 255, 227) 0%, rgb(221, 255, 228) 100%);
+}
+button {
+  margin: 0 20px 0 0;
+  transition: background-color .7s;
+  padding: 8px 16px;
+  background: #edf2fe;
+  border-radius: 12px;
+  background-size: 0% 100%;
+  color: #0d4cd3;
+  border: none;
+  font-family: 'Comfortaa';
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 24px;
+}
+button:hover {
+  background-color: #0d4cd3;
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  color: #fff;
+}
