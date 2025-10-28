@@ -24,8 +24,11 @@
   position: absolute;
   left:0;
   width:160px;
-  height: inherit;
-  background-color: #ff0000;
+  height: 35px;
+  background-image: url("../images/logo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 body {
   margin: 0;

@@ -1,8 +1,8 @@
 const { app, BrowserWindow, dialog, screen, ipcMain } = require('electron');
 const fs = require("node:fs");
 const path = require('node:path');
-const { toJson } = require('xml2json')
-
+const { parseString } = require("xml2js");
+const { XMLParser } = require('fast-xml-parser');
 // Создание/Удаление ярлыков в Windows при установке/удалении.
 if (require('electron-squirrel-startup')) { 
   app.quit();
@@ -24,13 +24,6 @@ const projectSelect = () => {
   // Загрузить projects.html
   projects.loadFile(path.join(__dirname, 'pages/projects/projects.html'));
 };
-ipcMain.on('toJson', (event, args) => {
-  try {
-    event.returnValue = {value: toJson(args['xml']), success: true}
-  } catch (error) {
-    event.returnValue = {error: error, success: false}
-  }
-});
 ipcMain.on('openFile', (event, args) => {
   dialog.showOpenDialog({ 
     properties: [
@@ -43,12 +36,13 @@ ipcMain.on('openFile', (event, args) => {
     }]
   }).then(
     (value) => {
-      if (value['canceled']) return 0;
+      if (value['canceled']) {
+        event.returnValue = {success: false}
+        return 0;
+        }
       let files;
       if (args["folder"]) {
-        files = value["filePaths"];
-        console.log(files);
-        
+        files = value["filePaths"];        
       } else {
         files = [];
         let paths = value["filePaths"]
@@ -75,20 +69,36 @@ ipcMain.on('newPrj', (event, args) => {
     minHeight: 600,
     autoHideMenuBar: true,
     webPreferences: {
+      nodeIntegration: true, 
+      contextIsolation: false,
+      additionalArguments: [args["folderPath"][0].split("/").at(-1)],
       preload: path.join(__dirname, 'pages/main/js/preload.js'),
     },
   });
   // Загрузить projects.html
   mainWindow.loadFile(path.join(__dirname, 'pages/main/main.html'));
   mainWindow.once("focus", ()=>{mainWindow.maximize();});
-  
   event.returnValue = {success: true};
 })
+
+
+ipcMain.on('convert', (event, args) => {
+  try {
+    const vm = "something"
+    
+    event.returnValue = {value: vm, success: true}
+  } catch (e) {
+    event.returnValue = {error: e, success: false}
+    console.log(e);
+  }
+  // Сохранение результата
+  // fs.writeFileSync('template.vm', template);
+});
 
 app.whenReady().then(() => {
   projectSelect();
   app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
+    if (BrowserWindow.getAllWindows().length == 0) {
       projectSelect();
     }
   });
