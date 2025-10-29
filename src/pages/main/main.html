@@ -13,12 +13,23 @@
     <input type="text" id="projectName" placeholder="Безымянный" value="Новый проект" class="button">
   </div>
   <div class="leftField">
-    <button type="button" onclick="openFile('Поля заявления (.json)', ['json'], false, 'jsonField')">Загрузить схему услуги</button>
-    <button type="button" onclick="openFile('Целевая структура (.xsd)', ['xml', 'xsd'], false, 'xmlStructure')">Загрузить схему вида сведений</button>
-    <button type="button" onclick="openFile('Пример(ы) заявления (.json)', ['json'], true, 'jsonExamples')">Загрузить пример(ы) заявлений</button>
+    <button type="button" onclick="openFile('Поля заявления (.json)', ['json'], false, 'jsonField')">Загрузить схему услуги <span class="buttonText">test.json</span>
+    <div class="trashIcon"></div>
+    <div class="uploadIcon"></div>
+    </button>
+    
+    <button type="button" onclick="openFile('Целевая структура (.xsd)', ['xml', 'xsd'], false, 'xmlStructure')">Загрузить схему вида сведений <span class="buttonText">test2.xml</span>
+    <div class="trashIcon"></div>
+    <div class="uploadIcon"></div>
+    </button>
+    
     <button type="button" class="genBtn" onclick="">Сгенерировать</button>
   </div>
-  
+  <div class="mainField">
+    <textarea id="codePreview" ></textarea>
+    <button type="button" class="genBtn downloadButton">Скачать файл <span class="downloadLogo"></span></button>>
+
+  </div>
   <script src="./js/renderer.js"></script>
 </body>
 </html>

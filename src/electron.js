@@ -3,15 +3,12 @@ const fs = require("node:fs");
 const path = require('node:path');
 const { parseString } = require("xml2js");
 const { XMLParser } = require('fast-xml-parser');
-// Создание/Удаление ярлыков в Windows при установке/удалении.
 if (require('electron-squirrel-startup')) { 
   app.quit();
 }
 
 const projectSelect = () => {
-  // Создать окно браузера
   displaySize = screen.getPrimaryDisplay().size;
-  
   const projects = new BrowserWindow({
     width: 700,
     height: 455,
@@ -21,7 +18,6 @@ const projectSelect = () => {
       preload: path.join(__dirname, 'pages/projects/js/preload.js'),
     },
   });
-  // Загрузить projects.html
   projects.loadFile(path.join(__dirname, 'pages/projects/projects.html'));
 };
 ipcMain.on('openFile', (event, args) => {
@@ -84,15 +80,12 @@ ipcMain.on('newPrj', (event, args) => {
 
 ipcMain.on('convert', (event, args) => {
   try {
-    const vm = "something"
     
     event.returnValue = {value: vm, success: true}
   } catch (e) {
     event.returnValue = {error: e, success: false}
     console.log(e);
   }
-  // Сохранение результата
-  // fs.writeFileSync('template.vm', template);
 });
 
 app.whenReady().then(() => {

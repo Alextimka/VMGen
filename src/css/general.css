@@ -5,14 +5,14 @@
   font-style: normal;
 }
 :root {
-  --background: #fafcff;
+  --background: #e6ecfc;
   --text-color: #deddd9;
   --button-color: #787b5e;
 }
 .header {
   align-items: center;
   margin: 0 auto;
-  height: 64px;
+  height: 100px;
   background-color: #fff;
   box-shadow: 0 2px 2px #9daccf14;
   width: 100%;
@@ -23,8 +23,8 @@
 .logo {
   position: absolute;
   left:0;
-  width:160px;
-  height: 35px;
+  width:210px;
+  height: 50px;
   background-image: url("../images/logo.png");
   background-size: contain;
   background-position: center;
@@ -35,7 +35,7 @@ body {
   padding: 0;
   font-family: 'Comfortaa';
   color: var(--text-color);
-  background: linear-gradient(86deg, rgb(253, 255, 227) 0%, rgb(221, 255, 228) 100%);
+  background-color: var(--background)
 }
 button {
   margin: 0 20px 0 0;

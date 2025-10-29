@@ -1,56 +1,114 @@
 #projectName {
   border: 0;
-  text-align: center;
-  margin: 0 20px 0 0;
+  text-align: left;
+  margin: 0 30px 0 0;
   transition: background-color .7s;
-  padding: 8px 16px;
-  background: #edf2fe;
+  padding: 20px 0 20px 30px;
+  background: #e6ecfc;
   border-radius: 12px;
   background-size: 0% 100%;
-  color: #0d4cd3;
+  color: #1465ab;
+  width: 775px;
   border: none;
   font-family: 'Comfortaa';
-  font-size: 16px;
+  font-size: 32px;
   cursor: text;
-  line-height: 24px;
+  line-height: 32px;
+ 
   border: 2px solid transparent;
+}
+.header {
+  height: 150px;
+}
+.logo {
+  height: 70px;
+  width: 300px;
 }
 #projectName:focus {
   outline: none;
   border: 2px solid #99b1e6;
 }
+.buttonText {
+  font-size:14px;
+}
 .genBtn {
+  position: absolute;
+  left: 30px;
+  margin: 0 0 0 0;
+  bottom: 200px;
   border: 2px solid transparent;
   border-radius: 8px;
   padding: 12px 38px;
   text-align: center;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 36px;
+  line-height: 50px;
+  align-items: center;
   color: #fff;
-  background-color: #0d4cd3;
+  background-color: #1465ab;
   cursor: pointer;
   white-space: nowrap;
 }
-.genBtn:hover {
+.genBtn:hover, .downloadButton:hover {
   color: #fff;
   background-color: #1d5deb;
 }
 button {
+  flex-direction: column;
+  align-items: baseline;
   display: flex;
-  margin: 70px auto 0 auto;
-  padding: 8px 22px;
-  width: 430px;
+  margin: 50px auto 0 auto;
+  padding: 10px 22px;
+  width: 550px;
   font-size: 22px;
   line-height: 32px;
+  height: 80px;
   background: #ffffff;
 }
 .leftField {
   position: fixed;
+  display: ruby;
   z-index: 0;
   left: 0;
   height: 100%;
   box-shadow: 5px 0 5px #49588314;
   background: #e4ecfd;
-  width: 500px;
-  align-items: center;
+  width: 600px;
+  padding-left: 30px;
+}
+.uploadIcon {
+  display: inline-block;
+  width:50px;
+  height: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../../../images/up.png);
+}
+.mainField {
+  position: fixed;
+  right:30px;
+  height:100%;
+  padding-top: 50px;
+}
+#codePreview {
+  border-radius: 15px;
+  border-width:3px;
+  border-color: #1465ab;
+  height: 50%;
+  width: 50rem;
+  padding: 10px;
+  resize: none;
+}
+.downloadButton {
+  left: 0;
+  bottom: 250px;
+  width: 825px;
+}
+.downloadLogo {
+  width:50px;
+  height: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../../../images/down.png);
 }

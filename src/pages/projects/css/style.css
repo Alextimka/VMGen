@@ -1,0 +1,42 @@
+button {
+  margin: 0 20px 0 0;
+  transition: background-color .7s;
+  padding: 16px 20px;
+  background: #e6ecfc;
+  border-radius: 12px;
+  background-size: 0% 100%;
+  color: #1465ab;
+  border: none;
+  font-family: 'Comfortaa';
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 36px;
+}
+.recentHeader {
+  color: #1465ab;
+  font-size: 32px;
+  padding-left: 30px;
+  height: 80px;
+  display: inline-flex;
+  line-height: 80px;
+}
+#historyIcon {
+  /* display: inline-flex; */
+  /* position: relative; */
+  width:50px;
+  height:100%;
+  margin-right:20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url("../../../images/hist.png");
+}
+.recentPrj {
+  height: 33px;
+  line-height: 33px;
+  padding-left: 30px;
+}
+
+.white {
+  background-color: #ffffff;
+}

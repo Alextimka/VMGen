@@ -12,10 +12,24 @@
 <body>
   <div class="header">
     <div class="logo"></div>
-    <button type="button" onclick="projects.newPrj()">Создать проект</button>
-    <button type="button" onclick="projects.openFile('Папка проекта', [], false, true)">Загрузить проект</button>  
+    <button type="button" onclick="projects.newPrj()">Создать проект</button> 
   </div>
-  <div class="recent"></div>
+  <div class="recent">
+    <div class="recentHeader">
+      <div id="historyIcon"></div>
+      <span>История</span>
+    </div>
+    <div class="projects">
+      <div class="recentPrj white"></div>
+      <div class="recentPrj"></div>
+      <div class="recentPrj white"></div>
+      <div class="recentPrj"></div>
+      <div class="recentPrj white"></div>
+      <div class="recentPrj"></div>
+      <div class="recentPrj white"></div>
+      <div class="recentPrj"></div>
+    </div>
+  </div>
   <script src="js/renderer.js"></script>
 </body>
 </html>
